@@ -1,0 +1,351 @@
+/* Reset & box-sizing */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Navbar */
+.navbar {
+  width: 100%;
+  background: #222;
+  color: #fff;
+  padding: 12px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap; /* mencegah overflow */
+  overflow: hidden; /* cegah meluber */
+  box-sizing: border-box;
+}
+
+.navbar .logo {
+  font-weight: 700;
+  font-size: 18px;
+  white-space: nowrap;
+}
+
+/* Desktop links: flex container aligned to the right */
+.nav-wrap {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-left: auto; /* push to right */
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  margin: 0;
+  padding: 0;
+  align-items: center;
+  /* allow shrinking on very small widths */
+  flex-shrink: 0;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  color: inherit;
+  font-size: 15px;
+  padding: 6px 8px;
+  display: inline-block;
+}
+
+.nav-links li a:hover {
+  color: #00aaff;
+}
+
+/* Menu button (mobile) */
+.menu-btn {
+  display: none;
+  background: none;
+  border: 0;
+  color: #fff;
+  font-size: 26px;
+  cursor: pointer;
+}
+
+/* Mobile menu panel (hidden by default)
+   We'll position it right under the navbar and animate from -10px to 0 */
+.mobile-menu {
+  display: none;
+  flex-direction: column;
+  background: #222;
+  width: 100%;
+  position: relative; /* will be placed after nav in DOM */
+  overflow: hidden;
+  transition: max-height 300ms ease, opacity 300ms ease, transform 300ms ease;
+  max-height: 0;
+  opacity: 0;
+  transform: translateY(-10px);
+  border-top: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+.mobile-menu.show {
+  display: flex; /* keeps it a flex column */
+  max-height: 600px; /* large enough to show items */
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.mobile-menu a {
+  padding: 12px 20px;
+  text-decoration: none;
+  color: #fff;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+.mobile-menu a:hover {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+/* Make sure nav content doesn't overflow: allow wrapping but keep logo left and links right */
+.nav-links li {
+  white-space: nowrap;
+}
+
+/* Responsive: switch to mobile layout */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+  }
+  .menu-btn {
+    display: block;
+  }
+}
+
+/* Extra small screens: allow logo to shrink a bit */
+@media (max-width: 420px) {
+  .navbar .logo {
+    font-size: 16px;
+  }
+}
+
+/* Hero Section Interactive */
+.hero-section {
+  position: relative;
+  width: 100%;
+  height: 420px;
+  background-image: url("https://images.unsplash.com/photo-1503264116251-35a269479413");
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(2px);
+}
+
+.hero-content {
+  position: relative;
+  color: white;
+  text-align: center;
+  z-index: 2;
+  animation: fadeIn 1.2s ease forwards;
+}
+
+.hero-content h1 {
+  font-size: 42px;
+  margin: 0 0 10px 0;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+}
+
+.hero-content p {
+  font-size: 18px;
+  margin-bottom: 20px;
+  opacity: 0.9;
+}
+
+.hero-btn {
+  display: inline-block;
+  padding: 12px 26px;
+  background: #00aaff;
+  color: #fff;
+  text-decoration: none;
+  font-size: 16px;
+  border-radius: 6px;
+  transition: 0.3s;
+}
+
+.hero-btn:hover {
+  background: #0088cc;
+  transform: scale(1.05);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ========================== TAMBAHAN MAIN SECTION ============================== */
+
+/* wrapper main */
+.main-section {
+  width: 100%;
+  display: flex;
+  justify-content: center; /* untuk meratakan ke tengah */
+  padding: 60px 20px;
+}
+
+/* container 3 kotak */
+.card-container {
+  display: flex;
+  gap: 35px;
+  flex-wrap: wrap; /* agar responsif jika layar kecil */
+  justify-content: center;
+}
+
+/* style setiap kotak */
+.card-box {
+  background: #fff;
+  width: 290px;
+  text-align: center;
+  padding: 25px 20px;
+  border-radius: 14px;
+  box-shadow: 0px 6px 22px rgba(0, 0, 0, 0.18); /* efek shadow */
+  transition: 0.3s ease;
+}
+
+/* efek hover */
+.card-box:hover {
+  transform: translateY(-6px);
+  box-shadow: 0px 10px 26px rgba(0, 0, 0, 0.25);
+}
+
+/* gambar bulat */
+.card-img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%; /* membuat gambar bulat */
+  object-fit: cover;
+  margin-bottom: 15px;
+}
+
+/* judul */
+.card-box h3 {
+  font-size: 20px;
+  margin: 8px 0;
+}
+
+/* paragraf */
+.card-box p {
+  font-size: 15px;
+  opacity: 0.8;
+  margin-bottom: 16px;
+}
+
+/* tombol */
+.card-btn {
+  padding: 10px 20px;
+  background: #00aaff;
+  border: none;
+  border-radius: 6px;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.card-btn:hover {
+  background: #0088cc;
+  transform: scale(1.04);
+}
+
+/* responsif untuk mobile */
+@media (max-width: 768px) {
+  .card-container {
+    gap: 20px;
+  }
+}
+
+/* ========================== TAMBAHAN SECTION 2 ============================== */
+
+.about-section {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 70px 20px;
+  background: #f8f9fa; /* warna lembut */
+}
+
+.about-wrapper {
+  max-width: 1200px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+/* Kiri */
+.about-text {
+  flex: 1;
+}
+
+.about-text h2 {
+  font-size: 30px;
+  margin-bottom: 18px;
+  font-weight: 700;
+  color: #222;
+}
+
+.about-text p {
+  font-size: 16px;
+  line-height: 1.6;
+  opacity: 0.9;
+  color: #333;
+}
+
+/* Kanan */
+.about-image {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.about-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  object-fit: cover;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.18);
+}
+
+/* 🔥 Responsive (urutan heading di atas, gambar di bawah jika mobile) */
+@media (max-width: 900px) {
+  .about-wrapper {
+    flex-direction: column; /* stack */
+    text-align: center;
+  }
+
+  .about-text h2 {
+    font-size: 26px;
+  }
+
+  .about-text p {
+    font-size: 15px;
+  }
+
+  .about-image img {
+    width: 95%;
+  }
+}

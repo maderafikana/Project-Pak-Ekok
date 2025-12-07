@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Responsive Navbar</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="logo">Made Rafi Kana</div>
+
+      <div class="nav-wrap">
+        <ul class="nav-links">
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Career</a></li>
+          <li><a href="#">Contact Us</a></li>
+          <li><a href="#">Division</a></li>
+          <li><a href="#">Project</a></li>
+        </ul>
+
+        <button
+          class="menu-btn"
+          aria-expanded="false"
+          aria-controls="mobileMenu"
+          onclick="toggleMenu(this)"
+        >
+          <span class="sr-only"></span>
+          &#9776;
+        </button>
+      </div>
+    </nav>
+
+    <div id="mobileMenu" class="mobile-menu" aria-hidden="true">
+      <a href="#">Home</a>
+      <a href="#">Career</a>
+      <a href="#">Contact Us</a>
+      <a href="#">Division</a>
+      <a href="#">Project</a>
+    </div>
+
+    <header class="hero-section">
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <h1>WELCOME TO OUR WEBSITE</h1>
+        <p>Professional • Reliable • Innovative</p>
+        <a href="#" class="hero-btn">Get Started</a>
+      </div>
+    </header>
+
+    <!-- MAIN SECTION -->
+    <!-- ================================= TAMBAHAN ================================= -->
+    <main class="main-section">
+      <section class="card-container">
+        <!-- Kotak 1 -->
+        <div class="card-box">
+          <img src="Gambar/contoh.jpg" class="card-img" alt="Image 1" />
+          <h3>Professional Team</h3>
+          <p>Kami memberikan layanan terbaik dengan tim yang berpengalaman.</p>
+          <button class="card-btn">Learn More</button>
+        </div>
+
+        <!-- Kotak 2 -->
+        <div class="card-box">
+          <img src="Gambar/contoh.jpg" class="card-img" alt="Image 2" />
+          <h3>Reliable Service</h3>
+          <p>Pelayanan cepat tanggap dan dapat diandalkan setiap saat.</p>
+          <button class="card-btn">Learn More</button>
+        </div>
+
+        <!-- Kotak 3 -->
+        <div class="card-box">
+          <img src="Gambar/contoh.jpg" class="card-img" alt="Image 3" />
+          <h3>Innovative Solutions</h3>
+          <p>Terus berinovasi untuk memberikan solusi yang modern.</p>
+          <button class="card-btn">Learn More</button>
+        </div>
+      </section>
+    </main>
+    <!-- ================================= TAMBAHAN END =============================== -->
+
+    <!-- ================================= TAMBAHAN SECTION 2 ================================= -->
+      <section class="about-section">
+        <div class="about-wrapper">
+          
+          <!-- Kiri: Heading & Paragraf -->
+          <div class="about-text">
+            <h2>We are The Largest Fully Integrated Business Expert in Indonesia</h2>
+            <p>
+              The Vision for BVR group Asia was inspired by our founder from decades of business
+              experience in various countries throught the globe, bringing a fully integrated harmonious
+              team of talent and divisions together to ensure knowledge, efficiency, and quality, are
+              maximized for the benefit of the project and the client. These foundations for the benefit
+              of the project and the client. These foundations are key to the BVR meaning Building
+              Valuable Relationships are key to the BVR meaning Building Valuable Relationships by
+              providing a full service organization to better manage client expectations throughout the
+              full life cycle of every individual project.
+            </p>
+          </div>
+
+          <!-- Kanan: Gambar full -->
+          <div class="about-image">
+            <img src="Gambar/contoh.jpg" alt="About Image" />
+          </div>
+        </div>
+      </section>
+    <!-- ================================= TAMBAHAN SECTION 2 END =============================== -->
+
+
+    <script>
+      function toggleMenu(btn) {
+        const panel = document.getElementById("mobileMenu");
+        const isOpen = panel.classList.toggle("show");
+        btn.setAttribute("aria-expanded", isOpen);
+        panel.setAttribute("aria-hidden", !isOpen);
+      }
+
+      /* Optional: close mobile menu when clicking outside (helps UX) */
+      document.addEventListener("click", function (e) {
+        const menu = document.getElementById("mobileMenu");
+        const btn = document.querySelector(".menu-btn");
+        const withinNav =
+          e.composedPath().includes(menu) ||
+          e.composedPath().includes(btn) ||
+          e
+            .composedPath()
+            .some(
+              (el) =>
+                el &&
+                el.classList &&
+                el.classList.contains &&
+                el.classList.contains("navbar")
+            );
+        if (!withinNav && menu.classList.contains("show")) {
+          menu.classList.remove("show");
+          btn.setAttribute("aria-expanded", false);
+          menu.setAttribute("aria-hidden", true);
+        }
+      });
+
+      /* Prevent layout shift if JavaScript disabled: keep desktop links visible by default in CSS */
+    </script>
+  </body>
+</html>

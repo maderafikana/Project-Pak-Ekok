@@ -349,3 +349,98 @@ body {
     width: 95%;
   }
 }
+
+/* ========================== TAMBAHAN SECTION 3 ============================== */
+
+.division-section {
+  width: 100%;
+  padding: 80px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #ffffff;
+}
+
+/* bagian heading dan paragraf */
+.division-top {
+  max-width: 900px;
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.division-top h2 {
+  font-size: 32px;
+  margin-bottom: 16px;
+  font-weight: 700;
+  color: #222;
+}
+
+.division-top p {
+  font-size: 16px;
+  line-height: 1.7;
+  opacity: 0.9;
+  color: #333;
+}
+
+/* GRID 10 Kotak */
+.division-grid {
+  width: 100%;
+  max-width: 1200px;
+  display: grid;
+  gap: 26px;
+  justify-content: center;
+  grid-template-columns: repeat(3, 1fr); /* default desktop: 3 kolom */
+}
+
+/* Style setiap kotak */
+.division-box {
+  background: #f8f9fa;
+  border-radius: 12px;
+  padding: 20px;
+  text-align: center;
+  transition: 0.25s ease;
+  box-shadow: 0 5px 18px rgba(0, 0, 0, 0.12);
+}
+
+.division-box:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 26px rgba(0, 0, 0, 0.18);
+}
+
+/* gambar dalam kotak */
+.division-box img {
+  width: 100%;
+  height: 170px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 14px;
+}
+
+.division-box p {
+  font-size: 15px;
+  font-weight: 600;
+  color: #222;
+}
+
+/* 🔥 Responsif (75% layar → 2 kolom) */
+@media (max-width: 992px) {
+  .division-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* 📱 Tampilan mobile → 1 kolom */
+@media (max-width: 600px) {
+  .division-grid {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .division-top h2 {
+    font-size: 26px;
+  }
+
+  .division-top p {
+    font-size: 15px;
+  }
+}
+

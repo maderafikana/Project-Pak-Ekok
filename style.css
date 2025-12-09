@@ -444,3 +444,134 @@ body {
   }
 }
 
+/* ============================== FOOTER STYLE ============================== */
+
+.footer-section {
+  width: 100%;
+  padding: 60px 25px;
+  background: #111;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+}
+
+.footer-wrapper {
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  justify-content: space-between;
+  gap: 50px;
+}
+
+/* ================= LEFT ================= */
+.footer-left {
+  flex: 1;
+}
+
+/* Logo + Nama */
+.footer-logo-box {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 20px;
+}
+
+.footer-logo {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%; /* gambar bulat */
+  object-fit: cover;
+  border: 2px solid #00aaff;
+}
+
+.footer-name {
+  font-size: 22px;
+  font-weight: 700;
+}
+
+/* Lokasi Open Google Maps */
+.footer-location {
+  display: block;
+  margin: 10px 0 22px 0;
+  color: #ddd;
+  line-height: 1.5;
+  text-decoration: none;
+  max-width: 330px;
+  transition: 0.3s ease;
+}
+
+.footer-location:hover {
+  color: #00aaff;
+  text-decoration: underline;
+}
+
+/* Sosial Media */
+.footer-social {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 22px;
+  flex-wrap: wrap;
+}
+
+.soc-icon {
+  text-decoration: none;
+  color: #fff;
+  font-size: 15px;
+  padding: 6px 12px;
+  border: 1px solid #555;
+  border-radius: 6px;
+  transition: 0.3s ease;
+}
+
+.soc-icon:hover {
+  background: #00aaff;
+  border-color: #00aaff;
+  transform: translateY(-3px);
+}
+
+/* Copyright */
+.footer-copy {
+  opacity: 0.7;
+  margin-top: 20px;
+}
+
+/* ================= RIGHT ================= */
+.footer-right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 12px;
+}
+
+.footer-link {
+  color: #eee;
+  text-decoration: none;
+  font-size: 16px;
+  position: relative;
+  transition: 0.3s ease;
+}
+
+/* Animasi saat hover */
+.footer-link:hover {
+  color: #00aaff;
+  transform: translateX(-6px);
+}
+
+/* RESPONSIVE */
+@media (max-width: 850px) {
+  .footer-wrapper {
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+  }
+
+  .footer-right {
+    align-items: center;
+  }
+
+  .footer-link:hover {
+    transform: translateY(-4px);
+  }
+}
+/* ============================== FOOTER END ============================== */
